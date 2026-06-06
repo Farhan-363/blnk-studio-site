@@ -1,0 +1,13 @@
+{
+  "name": "blnk-studio-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BLNK Studio website — Eleventy static site with Sveltia CMS blog.",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

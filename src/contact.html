@@ -1,0 +1,285 @@
+---
+permalink: /contact.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact BLNK Studio: Start a Project</title>
+  <meta name="description" content="Tell us where your digital presence feels stuck. We review every brief personally and reply within 24 hours. Email, call, or WhatsApp BLNK Studio." />
+
+  <meta property="og:title" content="Contact BLNK Studio" />
+  <meta property="og:description" content="Start a project with BLNK Studio. Response within 24 hours." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark"><img src="assets/logo-lockup-dark.png" alt="BLNK Studio" /></div>
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="BLNK Studio home">
+        <img src="assets/logo-lockup-dark.png" alt="BLNK Studio - Strategy. Design. Impact." />
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" class="is-active">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="free-audit.html" class="btn btn--dark btn--sm">Free Audit</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:hello@theblnkstudio.com?subject=Discovery%20Call" class="btn btn--primary btn--block">Book Discovery Call</a>
+      <a href="tel:+919380662078" class="btn btn--outline btn--block">Call +91 93806 62078</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO + FORM ============ -->
+    <section class="hero hero--page hero--contact" id="hero">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <span class="eyebrow reveal">(00) Start a project</span>
+            <h1 class="h-xl hero__title">
+              <span class="line"><span>Tell us where your</span></span>
+              <span class="line"><span>digital presence</span></span>
+              <span class="line"><span>feels <em>stuck.</em></span></span>
+            </h1>
+            <p class="page-sub reveal" data-delay="1">
+              Whether you need a full rebrand or just want to understand why your
+              website isn't converting, this is the right place to start.
+            </p>
+            <p class="page-body reveal" data-delay="2">
+              Fill in the brief and we'll review it personally, then come back within
+              24 hours with initial thoughts and next steps.
+            </p>
+            <p class="hero__micro reveal" data-delay="3">No retainer to start a conversation &middot; No sales pitch on the first call</p>
+
+            <div class="contact-methods reveal" data-delay="3">
+              <div class="cm"><span class="cm__k">Email</span><a class="cm__v" href="mailto:hello@theblnkstudio.com">hello@theblnkstudio.com</a></div>
+              <div class="cm"><span class="cm__k">Call</span><a class="cm__v" href="tel:+919380662078">+91 93806 62078</a></div>
+              <div class="cm"><span class="cm__k">WhatsApp</span><a class="cm__v" href="https://wa.me/919380662078" target="_blank" rel="noopener">+91 93806 62078</a></div>
+              <div class="cm"><span class="cm__k">Instagram</span><a class="cm__v" href="https://instagram.com/blnk.mediaa" target="_blank" rel="noopener">@blnk.mediaa</a></div>
+              <div class="cm"><span class="cm__k">Response</span><span class="cm__v">Within 24 hours &middot; Mon&ndash;Sat</span></div>
+            </div>
+          </div>
+
+          <!-- Brief form -->
+          <form class="cform reveal" id="briefForm" data-delay="1" novalidate>
+            <div class="cform__head"><span>Project brief</span><span>01 / 01</span></div>
+            <div class="field--row">
+              <div class="field">
+                <label for="f-name">Your name</label>
+                <input id="f-name" name="name" type="text" placeholder="Jane Founder" required />
+              </div>
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" placeholder="you@brand.com" required />
+              </div>
+            </div>
+            <div class="field--row">
+              <div class="field">
+                <label for="f-company">Company / brand</label>
+                <input id="f-company" name="company" type="text" placeholder="Optional" />
+              </div>
+              <div class="field">
+                <label for="f-budget">Budget</label>
+                <select id="f-budget" name="budget">
+                  <option>Not sure yet</option>
+                  <option>Under &#8377;50,000</option>
+                  <option>&#8377;50,000 &ndash; &#8377;1,00,000</option>
+                  <option>&#8377;1,00,000 &ndash; &#8377;3,00,000</option>
+                  <option>&#8377;3,00,000+</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-service">What do you need?</label>
+              <select id="f-service" name="service">
+                <option>Not sure yet, help me figure it out</option>
+                <option>Brand Identity &amp; Collaterals</option>
+                <option>Website Strategy &amp; Design</option>
+                <option>Social Media Management</option>
+                <option>SEO Strategy</option>
+                <option>Content Writing</option>
+                <option>Performance Marketing</option>
+                <option>Pitch Decks &amp; Presentations</option>
+                <option>Multiple services</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-message">Tell us where things feel stuck</label>
+              <textarea id="f-message" name="message" placeholder="A few lines about your brand, your goals, and what's not working right now." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg">Send the brief</button>
+            <p class="cform__note">We review every submission personally. Response within 24 hours.</p>
+            <p class="cform__sent">Thanks, your email draft is ready. Hit send and we'll be in touch within 24 hours.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IMAGE BAND ============ -->
+    <section class="showcase" aria-label="Just a conversation">
+      <div class="container showcase__inner">
+        <span class="eyebrow reveal">Just a conversation</span>
+        <h2 class="showcase__title reveal" data-delay="1">No pressure. No pitch. Just a clear look at what's next.</h2>
+        <p class="showcase__sub reveal" data-delay="2">First calls are free, and there's never any pressure to commit.</p>
+      </div>
+    </section>
+
+    <!-- ============ WHAT HAPPENS NEXT ============ -->
+    <section class="sec" id="next">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-head__main">
+            <span class="eyebrow reveal">(01) What happens next</span>
+            <h2 class="section-title reveal" data-delay="1">Here's what to expect after you submit.</h2>
+          </div>
+        </div>
+
+        <div class="grid-table">
+          <div class="steps steps--4">
+            <div class="step reveal">
+              <span class="step__no">01</span>
+              <h3>We review your brief</h3>
+              <p>Every submission is read by a real person. We look at your website, your brief, and your goals before we respond.</p>
+              <span class="step__time">Real human review</span>
+            </div>
+            <div class="step reveal" data-delay="1">
+              <span class="step__no">02</span>
+              <h3>You get a response</h3>
+              <p>Not an automated email. An actual response, with initial thoughts and a suggested next step.</p>
+              <span class="step__time">Within 24 hours</span>
+            </div>
+            <div class="step reveal" data-delay="2">
+              <span class="step__no">03</span>
+              <h3>We book a Discovery Call</h3>
+              <p>No preparation needed. Just a conversation about your brand, your goals, and whether we're the right fit.</p>
+              <span class="step__time">30-minute call</span>
+            </div>
+            <div class="step reveal" data-delay="3">
+              <span class="step__no">04</span>
+              <h3>You receive a plan</h3>
+              <p>Depending on your brief, we'll send a tailored proposal or start with a quick audit of your current presence.</p>
+              <span class="step__time">Proposal or audit</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-foot">
+          <a href="mailto:hello@theblnkstudio.com?subject=Project%20Enquiry" class="link-arrow reveal">Prefer email? Drop us a line <span>&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta on-dark">
+      <div class="container">
+        <h2 class="final-cta__title reveal">Prefer to <em>talk</em> it through?</h2>
+        <p class="final-cta__sub reveal" data-delay="1">Call or message us directly. We're happy to start with a quick conversation, no brief required.</p>
+        <div class="final-cta__btns reveal" data-delay="2">
+          <a href="tel:+919380662078" class="btn btn--primary btn--lg">Call +91 93806 62078</a>
+          <a href="https://wa.me/919380662078" target="_blank" rel="noopener" class="btn btn--outline btn--lg">WhatsApp Us</a>
+        </div>
+        <p class="final-cta__micro reveal" data-delay="3">Response within 24 hours &middot; First calls are free &middot; No pressure to commit</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer on-dark">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo" aria-label="BLNK Studio home">
+          <img src="assets/logo-lockup.png" alt="BLNK Studio - Strategy. Design. Impact." />
+        </a>
+        <p>Strategy-led creative studio building brand, web, SEO, social and content systems for modern businesses.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Get in touch</h4>
+        <a href="mailto:hello@theblnkstudio.com">hello@theblnkstudio.com</a>
+        <a href="tel:+919380662078">+91 93806 62078</a>
+        <a href="https://wa.me/919380662078" target="_blank" rel="noopener">WhatsApp us</a>
+        <a href="https://instagram.com/blnk.mediaa" target="_blank" rel="noopener">@blnk.mediaa</a>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>&copy; <span id="year"></span> BLNK Studio</span>
+      <span>Strategy. Design. Impact.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var f = document.getElementById("briefForm");
+      if (!f) return;
+      f.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var g = function (n) { var el = f.elements[n]; return el ? el.value.trim() : ""; };
+        if (!g("name") || !g("email") || !g("message")) {
+          [["name","f-name"],["email","f-email"],["message","f-message"]].forEach(function (p) {
+            var el = document.getElementById(p[1]);
+            if (el && !g(p[0])) el.style.borderColor = "#e0564f";
+          });
+          return;
+        }
+        var subj = "New project brief: " + g("name");
+        var body =
+          "Name: " + g("name") + "\n" +
+          "Email: " + g("email") + "\n" +
+          "Company: " + (g("company") || "-") + "\n" +
+          "Budget: " + g("budget") + "\n" +
+          "Interested in: " + g("service") + "\n\n" +
+          "Brief:\n" + g("message");
+        f.classList.add("is-sent");
+        window.location.href =
+          "mailto:hello@theblnkstudio.com?subject=" + encodeURIComponent(subj) +
+          "&body=" + encodeURIComponent(body);
+      });
+    })();
+  </script>
+</body>
+</html>

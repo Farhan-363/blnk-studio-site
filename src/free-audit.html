@@ -1,0 +1,286 @@
+---
+permalink: /free-audit.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Audit: A 3-Point Teardown of Your Digital Presence | BLNK Studio</title>
+  <meta name="description" content="Get a free 3-point teardown of your website, brand, or social presence. In 48 hours you'll know what's costing you visibility, trust, and leads, and what to do about it." />
+
+  <meta property="og:title" content="BLNK Studio Free Audit" />
+  <meta property="og:description" content="A free 3-point teardown of your digital presence. No sales call. No commitment." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/audit.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark"><img src="assets/logo-lockup-dark.png" alt="BLNK Studio" /></div>
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="BLNK Studio home">
+        <img src="assets/logo-lockup-dark.png" alt="BLNK Studio - Strategy. Design. Impact." />
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="#request" class="btn btn--dark btn--sm" aria-current="page">Free Audit</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="#request" class="btn btn--primary btn--block">Request Free Audit</a>
+      <a href="mailto:hello@theblnkstudio.com?subject=Discovery%20Call" class="btn btn--outline btn--block">Book Discovery Call</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO + REQUEST FORM ============ -->
+    <section class="hero hero--page hero--audit" id="hero">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <span class="eyebrow reveal">(00) Free Audit</span>
+            <h1 class="h-xl hero__title">
+              <span class="line"><span>A free 3-point teardown</span></span>
+              <span class="line"><span>of your website, brand,</span></span>
+              <span class="line"><span>or <em>social</em> presence.</span></span>
+            </h1>
+            <p class="page-sub reveal" data-delay="1">
+              In 48 hours, you'll know exactly what's costing you visibility, trust,
+              and leads, and what to do about it. No sales call. No commitment.
+            </p>
+            <ul class="getlist reveal" data-delay="2">
+              <li>3 specific observations on your current presence</li>
+              <li>3 high-impact fixes you can act on immediately</li>
+              <li>A priority score and a recommended next step</li>
+              <li>Delivered by a real strategist, not an automated tool</li>
+            </ul>
+            <p class="trustline reveal" data-delay="3">Reviewed personally by the BLNK Studio team &middot; No bots &middot; No generic reports</p>
+          </div>
+
+          <!-- Request form -->
+          <form class="cform reveal" id="auditForm" data-delay="1" novalidate>
+            <div class="cform__head"><span>Request your audit</span><span>Free</span></div>
+            <div class="field">
+              <label for="a-name">Your name</label>
+              <input id="a-name" name="name" type="text" placeholder="Jane Founder" required />
+            </div>
+            <div class="field">
+              <label for="a-email">Email</label>
+              <input id="a-email" name="email" type="email" placeholder="you@brand.com" required />
+            </div>
+            <div class="field">
+              <label for="a-url">Website or social link</label>
+              <input id="a-url" name="url" type="text" placeholder="brand.com or @yourhandle" required />
+            </div>
+            <div class="field">
+              <label for="a-focus">What should we audit?</label>
+              <select id="a-focus" name="focus">
+                <option>My website</option>
+                <option>My brand identity</option>
+                <option>My social media</option>
+                <option>My SEO / search visibility</option>
+                <option>Everything, give me the full picture</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="a-note">Anything specific worrying you? (optional)</label>
+              <textarea id="a-note" name="note" placeholder="e.g. lots of traffic but almost no enquiries."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg">Request My Free Audit</button>
+            <p class="cform__note">Takes 60 seconds &middot; You'll receive your audit within 48 hours</p>
+            <p class="cform__sent">Thanks, your request email is ready. Hit send and your audit lands within 48 hours.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IMAGE BAND ============ -->
+    <section class="aband" aria-label="Reviewed by humans">
+      <div class="container aband__inner">
+        <span class="eyebrow reveal">Reviewed by humans</span>
+        <h2 class="aband__title reveal" data-delay="1">A real teardown, by real strategists.</h2>
+        <p class="aband__sub reveal" data-delay="2">No bots, no generic reports. Just a clear, honest look at what's quietly costing you leads.</p>
+      </div>
+    </section>
+
+    <!-- ============ WHAT'S IN YOUR AUDIT ============ -->
+    <section class="sec" id="whats-inside">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-head__main">
+            <span class="eyebrow reveal">(01) What's in your audit</span>
+            <h2 class="section-title reveal" data-delay="1">Three observations. Three fixes. One clear next step.</h2>
+          </div>
+        </div>
+
+        <div class="grid-table">
+          <div class="deliver">
+            <div class="cell reveal">
+              <span class="cell__no">01</span>
+              <h3>3 observations</h3>
+              <p>Three specific things working against you right now, across your site, brand, or social.</p>
+              <span class="cell__tag">What's wrong</span>
+            </div>
+            <div class="cell reveal" data-delay="1">
+              <span class="cell__no">02</span>
+              <h3>3 high-impact fixes</h3>
+              <p>Three changes you can act on immediately, chosen for the difference they'll actually make.</p>
+              <span class="cell__tag">What to do</span>
+            </div>
+            <div class="cell reveal" data-delay="2">
+              <span class="cell__no">03</span>
+              <h3>A priority score</h3>
+              <p>A simple score so you know what to tackle first, and what can safely wait.</p>
+              <span class="cell__tag">What comes first</span>
+            </div>
+            <div class="cell reveal" data-delay="3">
+              <span class="cell__no">04</span>
+              <h3>A recommended next step</h3>
+              <p>One clear recommendation for the single most valuable thing to do next.</p>
+              <span class="cell__tag">Where to go</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IS THIS FOR YOU ============ -->
+    <section class="sec section--warm" id="for-you">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-head__main">
+            <span class="eyebrow reveal">(02) Is this for you?</span>
+            <h2 class="section-title reveal" data-delay="1">You're in the right place if any of these sound familiar.</h2>
+          </div>
+        </div>
+
+        <div class="foryou">
+          <div class="check-card reveal">
+            <ul>
+              <li>Your website is live but not bringing in enquiries</li>
+              <li>Your social media is active but not growing</li>
+              <li>Your brand looks inconsistent across platforms</li>
+              <li>You're spending on ads but the results don't make sense</li>
+              <li>You've had the website a while and haven't thought about SEO</li>
+              <li>You're preparing to launch and want to be set up right</li>
+            </ul>
+          </div>
+          <div class="notfor reveal" data-delay="1">
+            <p class="notfor__label">Not for</p>
+            <p>This audit isn't for brands looking for vanity reports or generic checklists. It's a real review by real people, which is why we only take 10 audit requests a week.</p>
+            <div class="notfor__urgency"><span class="dot"></span> We limit free audits to protect quality &middot; Limited spots each week</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta on-dark">
+      <div class="container">
+        <h2 class="final-cta__title reveal">Claim your free audit <em>spot.</em></h2>
+        <p class="final-cta__sub reveal" data-delay="1">Sixty seconds to request. Forty-eight hours to a clear, prioritised plan for your digital presence.</p>
+        <div class="final-cta__btns reveal" data-delay="2">
+          <a href="#request" class="btn btn--primary btn--lg">Request My Free Audit</a>
+          <a href="contact.html" class="btn btn--outline btn--lg">Talk to Us First</a>
+        </div>
+        <p class="final-cta__micro reveal" data-delay="3">No sales call &middot; No commitment &middot; Audit delivered within 48 hours</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer on-dark">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo" aria-label="BLNK Studio home">
+          <img src="assets/logo-lockup.png" alt="BLNK Studio - Strategy. Design. Impact." />
+        </a>
+        <p>Strategy-led creative studio building brand, web, SEO, social and content systems for modern businesses.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Get in touch</h4>
+        <a href="mailto:hello@theblnkstudio.com">hello@theblnkstudio.com</a>
+        <a href="tel:+919380662078">+91 93806 62078</a>
+        <a href="https://wa.me/919380662078" target="_blank" rel="noopener">WhatsApp us</a>
+        <a href="https://instagram.com/blnk.mediaa" target="_blank" rel="noopener">@blnk.mediaa</a>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>&copy; <span id="year"></span> BLNK Studio</span>
+      <span>Strategy. Design. Impact.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var f = document.getElementById("auditForm");
+      if (!f) return;
+      f.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var g = function (n) { var el = f.elements[n]; return el ? el.value.trim() : ""; };
+        if (!g("name") || !g("email") || !g("url")) {
+          [["name","a-name"],["email","a-email"],["url","a-url"]].forEach(function (p) {
+            var el = document.getElementById(p[1]);
+            if (el && !g(p[0])) el.style.borderColor = "#e0564f";
+          });
+          return;
+        }
+        var subj = "Free Audit Request: " + g("name");
+        var body =
+          "Name: " + g("name") + "\n" +
+          "Email: " + g("email") + "\n" +
+          "Link: " + g("url") + "\n" +
+          "Audit focus: " + g("focus") + "\n\n" +
+          "Notes:\n" + (g("note") || "-");
+        f.classList.add("is-sent");
+        window.location.href =
+          "mailto:hello@theblnkstudio.com?subject=" + encodeURIComponent(subj) +
+          "&body=" + encodeURIComponent(body);
+      });
+    })();
+  </script>
+</body>
+</html>

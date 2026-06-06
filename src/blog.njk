@@ -1,0 +1,237 @@
+---
+permalink: /blog.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLNK Insights: Brand, Growth &amp; Digital Presence | BLNK Studio</title>
+  <meta name="description" content="Practical, strategic thinking on brand, websites, SEO, social media, content, and growth, for founders and brands building something worth finding online." />
+
+  <meta property="og:title" content="BLNK Insights" />
+  <meta property="og:description" content="Practical thinking on brand, growth, and digital presence." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/blog.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark"><img src="assets/logo-lockup-dark.png" alt="BLNK Studio" /></div>
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="BLNK Studio home">
+        <img src="assets/logo-lockup-dark.png" alt="BLNK Studio - Strategy. Design. Impact." />
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html" class="is-active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="free-audit.html" class="btn btn--dark btn--sm">Free Audit</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:hello@theblnkstudio.com?subject=Discovery%20Call" class="btn btn--primary btn--block">Book Discovery Call</a>
+      <a href="free-audit.html" class="btn btn--outline btn--block">Get Free Audit</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero hero--page hero--blog" id="hero">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__inner">
+          <span class="eyebrow reveal">(00) BLNK Insights</span>
+          <h1 class="h-xl hero__title reveal" data-delay="1">Practical thinking on brand, growth, and digital presence.</h1>
+          <p class="page-sub reveal" data-delay="2">
+            No fluff. No trend-chasing. Just clear, strategic content for founders
+            and brands building something worth finding online.
+          </p>
+          <div class="filters reveal" data-delay="3" role="tablist" aria-label="Filter articles">
+            <button class="filter is-active" data-filter="all">All</button>
+            <button class="filter" data-filter="branding">Branding</button>
+            <button class="filter" data-filter="websites">Websites</button>
+            <button class="filter" data-filter="seo">SEO</button>
+            <button class="filter" data-filter="social">Social Media</button>
+            <button class="filter" data-filter="growth">Growth</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% set featured = collections.posts | pickFeatured %}
+
+    {% if featured %}
+    <!-- ============ FEATURED ARTICLE ============ -->
+    <section class="featured" aria-label="Featured article">
+      <div class="container">
+        <article class="feat-card reveal">
+          <div class="feat-card__media">
+            <span class="feat-badge">Featured</span>
+            <img src="{{ featured.data.image or 'assets/blog-featured.jpg' }}" alt="{{ featured.data.title }}" />
+          </div>
+          <div class="feat-card__body">
+            <span class="feat-card__tag">{{ featured.data.category }}</span>
+            <h2 class="feat-card__title">{{ featured.data.title }}</h2>
+            <p class="feat-card__desc">{{ featured.data.excerpt }}</p>
+            <a href="{{ featured.url }}" class="link-arrow">Read article <span>&rarr;</span></a>
+            {% if featured.data.readtime %}<p class="feat-card__meta">{{ featured.data.readtime }}</p>{% endif %}
+          </div>
+        </article>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- ============ ARTICLE GRID ============ -->
+    <section class="sec" id="archive" style="padding-top: clamp(56px, 7vw, 90px);">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-head__main">
+            <span class="eyebrow reveal">(01) Latest thinking</span>
+            <h2 class="section-title reveal" data-delay="1">Strategy you can actually use.</h2>
+          </div>
+        </div>
+
+        <div class="insights__grid">
+          {% for post in collections.posts %}
+            {% if not featured or post.url != featured.url %}
+          <a class="i-card reveal" data-cat="{{ post.data.category | catSlug }}" href="{{ post.url }}">
+            <span class="i-card__tag">{{ post.data.category }}</span>
+            <h3>{{ post.data.title }}</h3>
+            <p>{{ post.data.excerpt }}</p>
+            <div class="i-card__meta"><span>{{ post.data.readtime or "Read" }}</span><span>Read &rarr;</span></div>
+          </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <p class="grid-empty">No articles in this category yet. Check back soon.</p>
+      </div>
+    </section>
+
+    <!-- ============ SUBSCRIBE ============ -->
+    <section class="subscribe" id="subscribe">
+      <div class="container">
+        <h2 class="subscribe__title reveal">Get the monthly dispatch.</h2>
+        <p class="subscribe__sub reveal" data-delay="1">Practical thinking on brand, growth, and digital presence, delivered once a month.</p>
+        <form class="subscribe__form reveal" data-delay="2" id="subForm" novalidate>
+          <input type="email" name="subemail" placeholder="you@brand.com" aria-label="Your email" required />
+          <button type="submit" class="btn btn--primary btn--lg">Subscribe</button>
+        </form>
+        <p class="subscribe__micro reveal" data-delay="3">Join 1,000+ founders reading BLNK's monthly dispatch. Unsubscribe any time.</p>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta on-dark" id="contact">
+      <div class="container">
+        <h2 class="final-cta__title reveal">Reading is good. <em>Fixing</em> it is better.</h2>
+        <p class="final-cta__sub reveal" data-delay="1">Get a free audit of your digital presence and a clear, prioritised list of what to improve first.</p>
+        <div class="final-cta__btns reveal" data-delay="2">
+          <a href="contact.html" class="btn btn--primary btn--lg">Get a Free Audit</a>
+          <a href="services.html" class="btn btn--outline btn--lg">Explore Services</a>
+        </div>
+        <p class="final-cta__micro reveal" data-delay="3">Response within 24 hours &middot; No sales pressure &middot; Just a conversation</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer on-dark">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo" aria-label="BLNK Studio home">
+          <img src="assets/logo-lockup.png" alt="BLNK Studio - Strategy. Design. Impact." />
+        </a>
+        <p>Strategy-led creative studio building brand, web, SEO, social and content systems for modern businesses.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Get in touch</h4>
+        <a href="mailto:hello@theblnkstudio.com">hello@theblnkstudio.com</a>
+        <a href="tel:+919380662078">+91 93806 62078</a>
+        <a href="https://wa.me/919380662078" target="_blank" rel="noopener">WhatsApp us</a>
+        <a href="https://instagram.com/blnk.mediaa" target="_blank" rel="noopener">@blnk.mediaa</a>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>&copy; <span id="year"></span> BLNK Studio</span>
+      <span>Strategy. Design. Impact.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      /* Category filter */
+      var chips = Array.prototype.slice.call(document.querySelectorAll(".filter"));
+      var cards = Array.prototype.slice.call(document.querySelectorAll(".i-card[data-cat]"));
+      var empty = document.querySelector(".grid-empty");
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          chips.forEach(function (c) { c.classList.remove("is-active"); });
+          chip.classList.add("is-active");
+          var f = chip.getAttribute("data-filter");
+          var any = false;
+          cards.forEach(function (card) {
+            var show = f === "all" || card.getAttribute("data-cat") === f;
+            card.classList.toggle("is-hidden", !show);
+            if (show) any = true;
+          });
+          if (empty) empty.style.display = any ? "none" : "block";
+        });
+      });
+
+      /* Subscribe -> compose email */
+      var sf = document.getElementById("subForm");
+      if (sf) {
+        sf.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var el = sf.elements["subemail"];
+          var v = el ? el.value.trim() : "";
+          if (!v) { if (el) el.style.borderColor = "#e0564f"; return; }
+          window.location.href =
+            "mailto:hello@theblnkstudio.com?subject=" + encodeURIComponent("Subscribe: BLNK Insights") +
+            "&body=" + encodeURIComponent("Please add me to the monthly dispatch: " + v);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

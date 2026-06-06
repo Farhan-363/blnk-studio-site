@@ -1,0 +1,40 @@
+# ============================================================
+#  BLNK Studio — Sveltia CMS configuration
+# ============================================================
+#  IMPORTANT: change the "repo" line below to your GitHub
+#  username/repo once you create it, e.g. blnkstudio/blnk-site
+# ------------------------------------------------------------
+
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/blnk-studio-site   # <-- EDIT THIS
+  branch: main
+
+# Where uploaded images are committed, and how they're referenced on the site.
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+# Friendly link shown in the dashboard "View site" button.
+display_url: https://theblnkstudio.com
+site_url: https://theblnkstudio.com
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    description: "Write, edit and publish articles. Click Publish to push them live."
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}  —  {{category}}"
+    sortable_fields: [date, title]
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "The headline shown on the blog and at the top of the article." }
+      - { label: "Category", name: "category", widget: "select", options: ["Branding", "Websites", "SEO", "Social Media", "Growth"] }
+      - { label: "Publish date", name: "date", widget: "datetime", date_format: "DD MMM YYYY", time_format: false }
+      - { label: "Short summary", name: "excerpt", widget: "text", hint: "1–2 sentences shown on the blog card and in Google results." }
+      - { label: "Read time", name: "readtime", widget: "string", required: false, hint: "e.g. 6 min read", default: "5 min read" }
+      - { label: "Cover image", name: "image", widget: "image", required: false, hint: "Optional. Shown if this post is the featured one." }
+      - { label: "Feature on blog page?", name: "featured", widget: "boolean", default: false, required: false, hint: "Turn on to make this the big featured article at the top." }
+      - { label: "Save as draft (hide from site)", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Body", name: "body", widget: "markdown", hint: "The article itself. Use headings, bold, lists and links." }
