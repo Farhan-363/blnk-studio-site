@@ -93,8 +93,12 @@ permalink: /contact.html
           </div>
 
           <!-- Brief form -->
-          <form class="cform reveal" id="briefForm" data-delay="1" novalidate>
+          <form class="cform reveal" id="briefForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-delay="1" novalidate>
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" id="f-package" name="package" value="" />
+            <p hidden aria-hidden="true"><label>Leave this empty: <input name="bot-field" /></label></p>
             <div class="cform__head"><span>Project brief</span><span>01 / 01</span></div>
+            <p class="cform__applying" id="applyingNote" hidden></p>
             <div class="field--row">
               <div class="field">
                 <label for="f-name">Your name</label>
@@ -141,7 +145,7 @@ permalink: /contact.html
             </div>
             <button type="submit" class="btn btn--primary btn--lg">Send the brief</button>
             <p class="cform__note">We review every submission personally. Response within 24 hours.</p>
-            <p class="cform__sent">Thanks, your email draft is ready. Hit send and we'll be in touch within 24 hours.</p>
+            <p class="cform__sent">Thanks, we've got your brief. We'll be in touch within 24 hours.</p>
           </form>
         </div>
       </div>
@@ -256,9 +260,22 @@ permalink: /contact.html
     (function () {
       var f = document.getElementById("briefForm");
       if (!f) return;
+
+      // Pre-fill "Applying for" when arriving from a Services package button.
+      try {
+        var pkg = new URLSearchParams(location.search).get("package");
+        if (pkg) {
+          var pf = document.getElementById("f-package");
+          if (pf) pf.value = pkg;
+          var note = document.getElementById("applyingNote");
+          if (note) { note.textContent = "Applying for: " + pkg; note.hidden = false; }
+        }
+      } catch (err) {}
+
+      var g = function (n) { var el = f.elements[n]; return el ? String(el.value).trim() : ""; };
+
       f.addEventListener("submit", function (e) {
         e.preventDefault();
-        var g = function (n) { var el = f.elements[n]; return el ? el.value.trim() : ""; };
         if (!g("name") || !g("email") || !g("message")) {
           [["name","f-name"],["email","f-email"],["message","f-message"]].forEach(function (p) {
             var el = document.getElementById(p[1]);
@@ -266,18 +283,22 @@ permalink: /contact.html
           });
           return;
         }
-        var subj = "New project brief: " + g("name");
-        var body =
-          "Name: " + g("name") + "\n" +
-          "Email: " + g("email") + "\n" +
-          "Company: " + (g("company") || "-") + "\n" +
-          "Budget: " + g("budget") + "\n" +
-          "Interested in: " + g("service") + "\n\n" +
-          "Brief:\n" + g("message");
-        f.classList.add("is-sent");
-        window.location.href =
-          "mailto:hello@theblnkstudio.com?subject=" + encodeURIComponent(subj) +
-          "&body=" + encodeURIComponent(body);
+        var btn = f.querySelector("button[type=submit]");
+        if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(new FormData(f)).toString()
+        }).then(function (r) {
+          if (!r.ok) throw new Error("submit failed");
+          f.classList.add("is-sent");
+          f.reset();
+        }).catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = "Send the brief"; }
+          window.location.href =
+            "mailto:hello@theblnkstudio.com?subject=" + encodeURIComponent("New project brief: " + g("name")) +
+            "&body=" + encodeURIComponent("Name: " + g("name") + "\nEmail: " + g("email") + "\n\n" + g("message"));
+        });
       });
     })();
   </script>

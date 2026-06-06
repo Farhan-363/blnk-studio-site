@@ -53,6 +53,7 @@
 .cform__note { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.06em; color: var(--text-mut); margin-top: 14px; text-align: center; }
 .cform__sent { display: none; font-family: var(--font-mono); font-size: 0.8rem; color: var(--blue); margin-top: 14px; text-align: center; }
 .cform.is-sent .cform__sent { display: block; }
+.cform__applying { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); background: rgba(59,110,245,0.08); border: 1px solid rgba(59,110,245,0.25); border-radius: 6px; padding: 8px 12px; margin-bottom: 18px; }
 
 /* ---- Image band (conversation) ---- */
 .showcase {

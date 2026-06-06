@@ -163,6 +163,7 @@
 .pkg-card__price small { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mut); margin-bottom: 22px; }
 .pkg-card .btn { width: 100%; }
 .packages__note { text-align: center; color: var(--text-mut); font-size: 0.9rem; max-width: 620px; margin: 0 auto 26px; }
+.packages__cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
 /* ============================================================
    FAQ accordion

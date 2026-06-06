@@ -87,7 +87,9 @@ permalink: /free-audit.html
           </div>
 
           <!-- Request form -->
-          <form class="cform reveal" id="auditForm" data-delay="1" novalidate>
+          <form class="cform reveal" id="auditForm" name="audit" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-delay="1" novalidate>
+            <input type="hidden" name="form-name" value="audit" />
+            <p hidden aria-hidden="true"><label>Leave this empty: <input name="bot-field" /></label></p>
             <div class="cform__head"><span>Request your audit</span><span>Free</span></div>
             <div class="field">
               <label for="a-name">Your name</label>
@@ -117,7 +119,7 @@ permalink: /free-audit.html
             </div>
             <button type="submit" class="btn btn--primary btn--lg">Request My Free Audit</button>
             <p class="cform__note">Takes 60 seconds &middot; You'll receive your audit within 48 hours</p>
-            <p class="cform__sent">Thanks, your request email is ready. Hit send and your audit lands within 48 hours.</p>
+            <p class="cform__sent">Thanks, we've got your request. Your audit lands within 48 hours.</p>
           </form>
         </div>
       </div>
@@ -258,9 +260,9 @@ permalink: /free-audit.html
     (function () {
       var f = document.getElementById("auditForm");
       if (!f) return;
+      var g = function (n) { var el = f.elements[n]; return el ? String(el.value).trim() : ""; };
       f.addEventListener("submit", function (e) {
         e.preventDefault();
-        var g = function (n) { var el = f.elements[n]; return el ? el.value.trim() : ""; };
         if (!g("name") || !g("email") || !g("url")) {
           [["name","a-name"],["email","a-email"],["url","a-url"]].forEach(function (p) {
             var el = document.getElementById(p[1]);
@@ -268,17 +270,22 @@ permalink: /free-audit.html
           });
           return;
         }
-        var subj = "Free Audit Request: " + g("name");
-        var body =
-          "Name: " + g("name") + "\n" +
-          "Email: " + g("email") + "\n" +
-          "Link: " + g("url") + "\n" +
-          "Audit focus: " + g("focus") + "\n\n" +
-          "Notes:\n" + (g("note") || "-");
-        f.classList.add("is-sent");
-        window.location.href =
-          "mailto:hello@theblnkstudio.com?subject=" + encodeURIComponent(subj) +
-          "&body=" + encodeURIComponent(body);
+        var btn = f.querySelector("button[type=submit]");
+        if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(new FormData(f)).toString()
+        }).then(function (r) {
+          if (!r.ok) throw new Error("submit failed");
+          f.classList.add("is-sent");
+          f.reset();
+        }).catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = "Request My Free Audit"; }
+          window.location.href =
+            "mailto:hello@theblnkstudio.com?subject=" + encodeURIComponent("Free Audit Request: " + g("name")) +
+            "&body=" + encodeURIComponent("Name: " + g("name") + "\nEmail: " + g("email") + "\nLink: " + g("url"));
+        });
       });
     })();
   </script>
