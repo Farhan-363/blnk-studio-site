@@ -7,7 +7,7 @@
 
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/blnk-studio-site   # <-- EDIT THIS
+  repo: Farhan-363/blnk-studio-site
   branch: main
 
 # Where uploaded images are committed, and how they're referenced on the site.
