@@ -355,11 +355,11 @@ section { position: relative; z-index: 2; }
    ============================================================ */
 .proof { background: var(--bg-band); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: 44px; }
 .proof__top { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 30px; }
-.proof__label { font-family: var(--font-mono); font-size: 0.84rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mut); }
+.proof__label { font-family: var(--font-mono); font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mut); }
 .proof__metrics { display: flex; gap: 44px; }
 .proof__metric { display: flex; flex-direction: column; gap: 6px; }
-.proof__metric b { font-family: var(--font-head); font-weight: 700; font-size: 2.1rem; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
-.proof__metric span { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mut); }
+.proof__metric b { font-family: var(--font-head); font-weight: 700; font-size: 3.2rem; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+.proof__metric span { font-family: var(--font-mono); font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mut); }
 
 .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .marquee__track { display: inline-flex; align-items: center; gap: 16px; white-space: nowrap; animation: marquee 40s linear infinite; will-change: transform; }
